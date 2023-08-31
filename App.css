@@ -1,0 +1,55 @@
+.container {
+
+    max-width: 900px;
+    margin-top: 2rem;
+    margin-inline: auto;
+}
+.navSection {
+    display: flex;
+    justify-content: space-between;
+    height: 3rem;
+}
+.left {
+    width: 40%;
+}
+.left > img{
+    height: 100%;
+}
+
+.right > ul {
+    list-style-type: none;
+}
+.right > ul > li {
+    display: inline;
+    margin: 0 1rem;
+}
+.right > ul > li > a {
+    text-decoration: none;
+}
+
+.restoSection {
+    padding: 1rem;
+}
+.resto-Cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5;
+}
+.resto-card {
+    border: .5px solid black;
+    width: 200px;
+}
+.resto-card-img{
+    /* height: 100%; */
+    width: inherit;
+}
+
+.shimmerContainer{
+    display: flex;
+}
+.shimmerCard{
+    width: 200px;
+    height: 400px;
+    background-color: rgba(128, 128, 128, 0.351);
+    margin: 20px;
+} 
