@@ -1,30 +1,52 @@
 import React from "react";
 import ReactDOM  from "react-dom/client";
 import '../App.css'
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-import About from "./components/About";
-import Contact from "./components/Contact";
-import Explore from "./components/Explore";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+
 import ErrorEle from "./components/ErrorEle";
+import About from "./components/About";
+import Explore from "./components/Explore";
+import Contact from "./components/Contact";
 
 const App = () => {
     return(<>
         <Header/>
-        <Body/>
+        <Outlet/>
         <Footer/>
     </>)
 }
 
-const appRouterConfigs = createBrowserRouter([
-    {path: '/', element: <App/>, errorElement: <ErrorEle/>},
-    {path: '/about', element: <About/>},
-    {path: '/explore', element: <Explore/>},
-    {path: '/contact', element: <Contact/>},
+const appRouteConfigs = createBrowserRouter([
+    {
+        path: '/',
+        element: <App/>,
+        children: [
+            {
+                path: '/',
+                element: <Body/>
+            },
+            {
+                path: '/about',
+                element: <About/>
+            },
+            {
+                path: '/explore',
+                element: <Explore/>
+            },
+            {
+                path: '/contact',
+                element: <Contact/>
+            },
+
+        ],
+        errorElement: <ErrorEle/>
+    }
+
 ])
 
 const root = ReactDOM.createRoot(document.querySelector('#root'));
-root.render(<RouterProvider router={appRouterConfigs}/>);
+root.render(<RouterProvider router={appRouteConfigs}/>);
