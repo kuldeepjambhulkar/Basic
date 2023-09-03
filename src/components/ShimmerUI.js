@@ -1,9 +1,12 @@
 export default  ShimmerUI = () => {
-    return(<>
+    return(
+    <div className="container">
             <div className="shimmerContainer">
-                <div className="shimmerCard"></div>
-                <div className="shimmerCard"></div>
-                <div className="shimmerCard"></div>
+                <div className="resto-Cards shimmerCard "></div>
+                <div className="resto-Cards shimmerCard"></div>
+                <div className="resto-Cards shimmerCard"></div>
+                <div className="resto-Cards shimmerCard"></div>
             </div>
-    </>)
+    </div>
+    )
 }

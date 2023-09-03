@@ -11,6 +11,7 @@ import ErrorEle from "./components/ErrorEle";
 import About from "./components/About";
 import Explore from "./components/Explore";
 import Contact from "./components/Contact";
+import RestoMenu from "./components/RestoMenu";
 
 const App = () => {
     return(<>
@@ -41,7 +42,10 @@ const appRouteConfigs = createBrowserRouter([
                 path: '/contact',
                 element: <Contact/>
             },
-
+            {
+                path: '/restomenu/:id',
+                element: <RestoMenu/>
+            },
         ],
         errorElement: <ErrorEle/>
     }

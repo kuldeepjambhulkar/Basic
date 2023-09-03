@@ -58,9 +58,11 @@ const Body = () => {
             <div className="container restoSection">
                 <h2>Restos</h2>
                 <div className="resto-Cards">
+                    {console.log(filteredRestList)}
                     {filteredRestList && filteredRestList.map((resto, index) => {
                         return <RestoCard
                             key = {index}
+                            id={resto.info.id}
                             name = {resto.info.name}
                             cuisine = {resto.info.cuisines?.join(', ')}
                             rating = {resto.info.avgRating}
