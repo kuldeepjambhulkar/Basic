@@ -44,6 +44,12 @@
     width: inherit;
 }
 
+.user{
+    border: 1px solid black;
+    padding: 1rem;
+    width: fit-content;
+}
+
 .shimmerContainer{
     display: flex;
 }
@@ -52,4 +58,17 @@
     height: 400px;
     background-color: rgba(128, 128, 128, 0.351);
     margin: 20px;
+    animation: blink 1s infinite;
 } 
+
+@keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
