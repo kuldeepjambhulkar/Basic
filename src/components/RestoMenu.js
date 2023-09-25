@@ -1,26 +1,12 @@
-import { useState, useEffect } from "react"
 import ShimmerUI from "./ShimmerUI";
 import { useParams } from "react-router-dom";
+import useRestInfo from "../utils/hooks/useRestInfo";
 
 export default RestoMenu = () => {
-    const [restInfo, setRestInfo] = useState();
-    const[menuInfo, setMenuInfo] = useState();
     const{id} = useParams();
-    useEffect(()=>{
-        fetchMenu();
-    }, [])
-
-    const fetchMenu = async() => {
-        const URL = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204303&lng=73.8567437&restaurantId=${id}&catalog_qa=undefined&submitAction=ENTER`
-        const data = await fetch(URL);
-        const json = await data.json();
-        setMenuInfo(json?.data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
-        
-        // const{name, cuisines, costForTwoMessage, locality} = ;
-        setRestInfo(json?.data?.cards[0]?.card?.card?.info);
-    }
-
-
+    const restInfoRaw = useRestInfo(id);
+    const restInfo = restInfoRaw?.data?.cards[0]?.card?.card?.info;
+    const menuInfo = restInfoRaw?.data?.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards
 
     return(
     <>
