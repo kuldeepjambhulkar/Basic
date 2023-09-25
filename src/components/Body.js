@@ -1,6 +1,8 @@
 import RestoCard from "./RestoCard";
 import { useEffect, useState } from "react";
 import ShimmerUI from "./ShimmerUI";
+import useOnlineStatus from "../utils/hooks/useOnlineStatus";
+
 const Body = () => {
 
     const [restList, setRestList] = useState([]);
@@ -8,7 +10,7 @@ const Body = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [isFiltered, setIsFiltered] = useState(false);
     const[searchText, setSearchText] = useState("");
-
+    const isOnline = useOnlineStatus();
     useEffect(()=>{
         fetchData();
     }, [])
@@ -21,7 +23,11 @@ const Body = () => {
         setFilteredRestList(json.data.success.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         setIsLoading(false);
     }
-
+    if (!isOnline) {
+        return(<>
+            <h1>Check your interent connection</h1>
+        </>)
+    }
     return (
         <>
             <div className="container">
