@@ -1,6 +1,6 @@
 const Footer = () => {
     return(<>
-        <div className="container">
+        <div className="container mx-auto text-center">
             &copy; yo
         </div>
     </>)

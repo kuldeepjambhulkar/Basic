@@ -30,10 +30,10 @@ const Body = () => {
     }
     return (
         <>
-            <div className="container">
-                <div className="searchDiv">
-
+            <div className="container mx-auto mt-10">
+                <div className="searchDiv flex justify-center">
                     <input 
+                        className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text" 
                         value={searchText} 
                         onChange={(e) => {
@@ -46,6 +46,7 @@ const Body = () => {
                         }}
                     /> <br />
                     <button
+                        className={isFiltered ? "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"}
                         onClick={() => {
                             if(!isFiltered) {
                                 const filteredList = restList?.filter(res => res.info.avgRating > 4.3);
@@ -61,9 +62,9 @@ const Body = () => {
             {isLoading ? <div>
                 <ShimmerUI/>
             </div> :
-            <div className="container restoSection">
+            <div className="container restoSection mx-auto">
                 <h2>Restos</h2>
-                <div className="resto-Cards">
+                <div className="resto-Cards flex flex-wrap">
                     {filteredRestList && filteredRestList.map((resto, index) => {
                         return <RestoCard
                             key = {index}
