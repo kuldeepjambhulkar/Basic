@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM  from "react-dom/client";
 import '../App.css'
 
@@ -13,10 +13,20 @@ import Explore from "./components/Explore";
 import Contact from "./components/Contact";
 import RestoMenu from "./components/RestoMenu";
 // import Grocery from "./components/Grocery";
+import UserContext from "./utils/UserContext";
 
 const App = () => {
+
+    // Dummy auth code
+    const[userName, setUserName] = useState('a');
+    useEffect(() => {
+        setUserName("John Wick");
+    }, [])
+
     return(<>
-        <Header/>
+        <UserContext.Provider value={{userName: userName}}>
+            <Header/>
+        </UserContext.Provider>
         <Outlet/>
         <Footer/>
     </>)
