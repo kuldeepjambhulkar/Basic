@@ -1,5 +1,4 @@
 export default RestoMenuCardItem = ({data}) => {
-    console.log(data);
     const imgId = data.card.info.imageId ? data.card.info.imageId : "y2gyqndu5xmzhnbzvaww";
     return(
         <div className="flex border-b-2 p-2 justify-between">

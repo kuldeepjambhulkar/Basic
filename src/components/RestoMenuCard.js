@@ -2,10 +2,9 @@ import { useState } from "react"
 import RestoMenuCardItem from "./RestoMenuCardItem"
 
 export default RestoMenuCard = (props) => {
-    const[showCardBody, setShowCardBody] = useState(false);
     return(
         <div>
-            <div className="shadow-sm w-1/2 mx-auto p-3 m-3 cursor-pointer select-none border-b-2" onClick={() => setShowCardBody(!showCardBody)}>
+            <div className="shadow-sm w-1/2 mx-auto p-3 m-3 cursor-pointer select-none border-b-2" onClick={() => {props.toggleShowCardBody()}}>
                 {/* Head + Toggle Icon */}
                 <div className="flex my-3 justify-between">
                     <div className="">
@@ -18,7 +17,7 @@ export default RestoMenuCard = (props) => {
                 </div>
                 {/* Body containing menu item */}
                 <div>
-                {showCardBody && props.data.card.card.itemCards.map(menuItem => {
+                {props.showCardBody && props.data.card.card.itemCards.map(menuItem => {
                     return <RestoMenuCardItem data = {menuItem}/>
                 })}
                 </div>
