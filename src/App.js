@@ -15,6 +15,10 @@ import RestoMenu from "./components/RestoMenu";
 // import Grocery from "./components/Grocery";
 import UserContext from "./utils/UserContext";
 
+
+import { Provider } from "react-redux";
+import appStore from "./store/appStore";
+
 const App = () => {
 
     // Dummy auth code
@@ -24,11 +28,13 @@ const App = () => {
     }, [])
 
     return(<>
-        <UserContext.Provider value={{userName: userName}}>
-            <Header/>
-        </UserContext.Provider>
-        <Outlet/>
-        <Footer/>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{userName: userName}}>
+                <Header/>
+            </UserContext.Provider>
+            <Outlet/>
+            <Footer/>
+        </Provider>
     </>)
 }
 
