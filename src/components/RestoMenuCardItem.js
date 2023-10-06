@@ -1,5 +1,12 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../store/cartSlice";
+
 export default RestoMenuCardItem = ({data}) => {
     const imgId = data.card.info.imageId ? data.card.info.imageId : "y2gyqndu5xmzhnbzvaww";
+    const dispatch = useDispatch();
+    const handleAddItem = (data) => {
+        dispatch(addItem(data));
+    }
     return(
         <div className="flex border-b-2 p-2 justify-between">
             <div className="m-2">
@@ -10,7 +17,12 @@ export default RestoMenuCardItem = ({data}) => {
             </div>
             <div className="flex flex-col">
                 <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/" + imgId} alt="" />
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
+                <button 
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => handleAddItem(data.card.info)}
+                >
+                    Add
+                </button>
             </div>
         </div>
     )

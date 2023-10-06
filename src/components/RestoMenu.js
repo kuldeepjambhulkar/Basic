@@ -26,8 +26,10 @@ export default RestoMenu = () => {
         {cardsToRender && 
             cardsToRender.map((card, index) => {
                 return <RestoMenuCard 
+                    key={index}
                     data={card}
-                    showCardBody = {index === showIndex && true}
+                    // showCardBody = {index === showIndex && true}
+                    showCardBody = {true}
                     toggleShowCardBody = {() => handleToggleShowCardBody(index)}
                 />
             })

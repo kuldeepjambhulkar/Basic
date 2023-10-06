@@ -64,7 +64,7 @@ const Body = () => {
             </div> :
             <div className="container restoSection mx-auto">
                 <h2>Restos</h2>
-                <div className="resto-Cards flex flex-wrap">
+                <div className="resto-Cards flex flex-wrap justify-center items-center">
                     {filteredRestList && filteredRestList.map((resto, index) => {
                         return <RestoCard
                             key = {index}

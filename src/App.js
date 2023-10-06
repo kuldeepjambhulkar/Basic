@@ -18,6 +18,7 @@ import UserContext from "./utils/UserContext";
 
 import { Provider } from "react-redux";
 import appStore from "./store/appStore";
+import Cart from "./components/Cart";
 
 const App = () => {
 
@@ -60,6 +61,10 @@ const appRouteConfigs = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact/>
+            },
+            {
+                path: '/cart',
+                element: <Cart/>
             },
             {
                 path: '/grocery',
