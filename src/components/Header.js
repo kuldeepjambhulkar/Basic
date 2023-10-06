@@ -2,10 +2,12 @@ import { LOGO_URL } from "../utils/common";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 const Header = () => {
 
     const[isLoggedIN, setIsLoggedIn] = useState(false);
     const {userName} = useContext(UserContext);
+    const cartData = useSelector((state) => state.cart.items)
 
     return(
             <div className="container navSection flex justify-between items-center mx-auto">
@@ -15,6 +17,7 @@ const Header = () => {
                 <div className="right">
                     <ul className="flex items-center">
                         <li className="ml-8"><Link to={'/'}>Home</Link></li>
+                        <li className="ml-8"><Link to={'/cart'}> Cart({ cartData.length }) </Link></li>
                         <li className="ml-8"><Link to={'/grocery'}>Grocery</Link></li>
                         <li className="ml-8"><Link to={'/about'}>About Us</Link></li> 
                         <li className="ml-8"><Link to={'/explore'}>Explore</Link></li>

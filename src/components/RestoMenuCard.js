@@ -17,8 +17,8 @@ export default RestoMenuCard = (props) => {
                 </div>
                 {/* Body containing menu item */}
                 <div>
-                {props.showCardBody && props.data.card.card.itemCards.map(menuItem => {
-                    return <RestoMenuCardItem data = {menuItem}/>
+                {props.showCardBody && props.data.card.card.itemCards.map((menuItem, index) => {
+                    return <RestoMenuCardItem key={index} data = {menuItem}/>
                 })}
                 </div>
             </div>
